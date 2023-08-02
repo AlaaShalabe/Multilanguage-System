@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+Route::resource('categories', CategoryController::class);
+// Route::get('lang', [SetLocale::class, 'setLocale'])->name('locale');
+Route::get('/lang/{locale}', function ($locale) {
+    if (!in_array($locale, ['en', 'ar'])) {
+        return redirect()->back()->with('error', 'this lang is not supported');
+    }
+
+    session()->put('locale', $locale);
+    //return $locale;
+    return redirect()->back();
 });
