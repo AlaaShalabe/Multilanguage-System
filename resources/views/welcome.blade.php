@@ -2,14 +2,14 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            @if (session($key ?? 'warning'))
-                <div class="alert alert-default" role="alert">
-                    {{ session($key ?? 'warning') }}<a href="{{ route('categories.create') }}" class='alert-link'> here</a>..
+            @if (Session::get('warning'))
+                <div class="container">
+                    <div class="notification is-info">
+                        <div>
+                            {{ Session::get('warning') }}<a href="{{ route('categories.create') }}" class='alert-link'>
+                                {{ __('here') }}</a>..
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>

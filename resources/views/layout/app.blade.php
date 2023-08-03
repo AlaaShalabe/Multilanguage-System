@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ App::currentLocale() }}" dir="{{ App::isLocale('ar') ? 'rtl' : 'ltr' }}">
 
-<head lang="{{ App::currentLocale() }}" dir="{{ App::isLocale('ar') ? 'rtl' : 'ltr' }}">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @if (App::isLocale('ar'))
@@ -17,11 +17,11 @@
     <section class="hero is-info">
         <div class="hero-body">
             <p class="title">
-                {{ __('Welcome') }}
+                {{ __('Multilanguage System') }}
             </p>
-            {{-- <p class="subtitle">
-                Info subtitle
-            </p> --}}
+            <p class="subtitle">
+                {{ __('Welcome..') }}
+            </p>
         </div>
     </section>
     @yield('content')
