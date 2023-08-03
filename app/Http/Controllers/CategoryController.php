@@ -28,8 +28,8 @@ class CategoryController extends Controller
         $request->validate([
             'en_name' => 'required|string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
             'ar_name' => 'required|string|regex:/^[\p{Arabic} ]+$/u',
-            'en_content' => 'required|string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
-            'ar_content' => 'required|string|regex:/^[\p{Arabic} ]+$/u',
+            'en_content' => 'required|string',
+            'ar_content' => 'required|string',
             'en_title' => 'required|string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
             'ar_title' => 'required|string|regex:/^[\p{Arabic} ]+$/u',
 
@@ -47,6 +47,7 @@ class CategoryController extends Controller
                 'content' => $request->input('ar_content')
             ],
         ];
+        // dd($request);
         $category = Category::create($category_data);
         $msg = Lang::get('alert.status.created');
         return redirect()->route('categories.index')->with('status', $msg);
@@ -60,8 +61,8 @@ class CategoryController extends Controller
         $request->validate([
             'en_name' => 'string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
             'ar_name' => 'string|regex:/^[\p{Arabic} ]+$/u',
-            'en_content' => 'string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
-            'ar_content' => 'string|regex:/^[\p{Arabic} ]+$/u',
+            'en_content' => 'string',
+            'ar_content' => 'string',
             'en_title' => 'string|regex:/^[A-Za-z]+(\s[A-Za-z]+)*$/',
             'ar_title' => 'string|regex:/^[\p{Arabic} ]+$/u',
         ]);

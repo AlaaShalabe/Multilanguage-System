@@ -2,11 +2,9 @@
 @section('content')
     <section class="section">
         <div class="container">
-            <h1 class="title">
-                {{ __('Categories') }}
-            </h1>
+
             @if (Session::get('status'))
-                <div class="container">
+                <div class="container column is-11 is-offset-1">
                     <div class="notification is-info">
                         <div>
                             {{ Session::get('status') }}
@@ -14,14 +12,10 @@
                     </div>
                 </div>
             @endif
-            {{-- <ul class="has-background-info">
-                @if (Session::get('status'))
-                    <div>
-                        {{ Session::get('status') }}
-                    </div>
-                @endif
-            </ul> --}}
-            <div class="table-container">
+            <h1 class="title column is-11 is-offset-1">
+                {{ __('All Categories') }}
+            </h1>
+            <div class="table-container column is-11 is-offset-1">
 
                 <table class="table">
                     <thead>
@@ -42,7 +36,7 @@
 
                                 <td>{{ $category->translate()->name }}</td>
                                 <td>{{ $category->translate()->title }}</td>
-                                <td>{{ $category->translate()->content }}</td>
+                                <td>{!! $category->translate()->content !!}</td>
                                 <td>
                                     <form action="{{ route('categories.destroy', $category) }}" method="POST">
                                         @csrf

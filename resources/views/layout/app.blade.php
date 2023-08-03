@@ -10,11 +10,16 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     @endif
     <title>{{ __('Multilanguage System') }}</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 
 <body>
     @include('layout.nav.navbar')
-    <section class="hero is-info">
+    <section class=" hero is-danger">
         <div class="hero-body">
             <p class="title">
                 {{ __('Multilanguage System') }}
@@ -26,6 +31,8 @@
     </section>
     @yield('content')
     @include('layout.footer')
+
 </body>
+@stack('scripts')
 
 </html>
