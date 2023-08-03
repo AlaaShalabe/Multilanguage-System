@@ -20,6 +20,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>{{ __('Created at') }}</th>
                             <th>{{ __('Name') }}</th>
                             <th><abbr title="Played">{{ __('Title') }}</abbr></th>
                             <th><abbr title="Won">{{ __('Content') }}</abbr></th>
@@ -32,8 +33,7 @@
                     <tbody>
                         @foreach ($categories as $category)
                             <tr>
-
-
+                                <td> {{ $category->created_at->format('d M Y') }}</td>
                                 <td>{{ $category->translate()->name }}</td>
                                 <td>{{ $category->translate()->title }}</td>
                                 <td>{!! $category->translate()->content !!}</td>
