@@ -14,7 +14,7 @@ class SetLocale extends Controller
         }
 
         session()->put('locale', $locale);
-        $categories = Category::all();
-        return redirect()->back()->with(['locale' => $locale, 'categories' => $categories]);
+
+        return redirect()->back();
     }
 }
