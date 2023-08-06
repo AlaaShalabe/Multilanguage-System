@@ -20,12 +20,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('categories', CategoryController::class);
 Route::get('lang/{locale}', [SetLocale::class, 'Locale'])->name('locale');
-// Route::get('/lang/{locale}', function ($locale) {
-//     if (!in_array($locale, ['en', 'ar'])) {
-//         return redirect()->back()->with('error', 'this lang is not supported');
-//     }
 
-//     session()->put('locale', $locale);
-//     //return $locale;
-//     return redirect()->back();
-// });
