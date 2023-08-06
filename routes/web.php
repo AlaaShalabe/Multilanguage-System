@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SetLocale;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('categories', CategoryController::class);
-// Route::get('lang', [SetLocale::class, 'setLocale'])->name('locale');
-Route::get('/lang/{locale}', function ($locale) {
-    if (!in_array($locale, ['en', 'ar'])) {
-        return redirect()->back()->with('error', 'this lang is not supported');
-    }
+Route::get('lang/{locale}', [SetLocale::class, 'Locale'])->name('locale');
+// Route::get('/lang/{locale}', function ($locale) {
+//     if (!in_array($locale, ['en', 'ar'])) {
+//         return redirect()->back()->with('error', 'this lang is not supported');
+//     }
 
-    session()->put('locale', $locale);
-    //return $locale;
-    return redirect()->back();
-});
+//     session()->put('locale', $locale);
+//     //return $locale;
+//     return redirect()->back();
+// });

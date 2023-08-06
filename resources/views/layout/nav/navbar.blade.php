@@ -27,11 +27,11 @@
 
                 <div class="navbar-dropdown">
                     @if (App::isLocale('ar'))
-                        <a href="/lang/en" class="navbar-item">
+                        <a href="{{ route('locale', 'en') }}" class="navbar-item">
                             {{ __('English') }}
                         </a>
                     @else
-                        <a href="/lang/ar" class="navbar-item">
+                        <a href="{{ route('locale', 'ar') }}" class="navbar-item">
                             {{ __('Arabic') }}
                         </a>
                     @endif
